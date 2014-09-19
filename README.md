@@ -17,26 +17,28 @@ Applications must supply a `verify` callback which accepts an `accessToken`, `re
 
 ##### Options
 
-* `clientID`: specifies the client id of the application that is registered in Azure Active Directory
-* `clientSecret`: secret used to establish ownership of the client Id
-* `callbackURL`: URL to which Azure AD will redirect the user after obtaining authorization
-* `resource`: [optional] the App ID URI of the web API (secured resource)
-* `tenant`: [optional] tenant domain (e.g.: contoso.onmicrosoft.com)
+* `clientID`: specifies the client id of the application that is registered in Azure Active Directory.
+* `clientSecret`: secret used to establish ownership of the client Id.
+* `callbackURL`: URL to which Azure AD will redirect the user after obtaining authorization.
+* `resource`: [optional] the App ID URI of the web API (secured resource).
+* `tenant`: [optional] tenant domain (e.g.: contoso.onmicrosoft.com).
 
-    passport.use(new AzureAdOAuth2Strategy({
-      clientID: '{YOUR_CLIENT_ID}',
-      clientSecret: '{YOUR_CLIENT_SECRET}',
-      callbackURL: 'https://www.example.net/auth/azureadoauth2/callback',
-      resource: '00000002-0000-0000-c000-000000000000',
-      tenant: 'contoso.onmicrosoft.com'
-    },
-    function (accessToken, refresh_token, params, profile, done) {
-      var waadProfile = profile || jwt.decode(params.id_token, '', true);
+```
+passport.use(new AzureAdOAuth2Strategy({
+  clientID: '{YOUR_CLIENT_ID}',
+  clientSecret: '{YOUR_CLIENT_SECRET}',
+  callbackURL: 'https://www.example.net/auth/azureadoauth2/callback',
+  resource: '00000002-0000-0000-c000-000000000000',
+  tenant: 'contoso.onmicrosoft.com'
+},
+function (accessToken, refresh_token, params, profile, done) {
+  var waadProfile = profile || jwt.decode(params.id_token, '', true);
 
-      User.findOrCreate({ id: waadProfile.upn }, function (err, user) {
-        done(err, user);
-      });
-    }));
+  User.findOrCreate({ id: waadProfile.upn }, function (err, user) {
+    done(err, user);
+  });
+}));
+```
 
 #### Authenticate Requests
 
@@ -44,15 +46,17 @@ Use `passport.authenticate()`, specifying the `'azure_ad_oauth2'` strategy, to a
 
 For example, as route middleware in an [Express](http://expressjs.com/) application:
 
-    app.get('/auth/azureadoauth2',
-      passport.authenticate('azure_ad_oauth2'));
-    
-    app.get('/auth/azureadoauth2/callback', 
-      passport.authenticate('azure_ad_oauth2', { failureRedirect: '/login' }),
-      function (req, res) {
-        // Successful authentication, redirect home.
-        res.redirect('/');
-      });
+```
+app.get('/auth/azureadoauth2',
+  passport.authenticate('azure_ad_oauth2'));
+
+app.get('/auth/azureadoauth2/callback', 
+  passport.authenticate('azure_ad_oauth2', { failureRedirect: '/login' }),
+  function (req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/');
+  });
+```
 
 ## Tests
 
