@@ -1,5 +1,5 @@
 var expect                = require('chai').expect;
-var AzureAdOAuth2Strategy = require('../lib/passport-azure-ad-oauth2/strategy');
+var AzureAdOAuth2Strategy = require('..');
 
 describe('Strategy', function() {
     
