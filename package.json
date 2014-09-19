@@ -1,0 +1,46 @@
+{
+  "name": "passport-azure-ad-oauth2",
+  "version": "0.0.1",
+  "description": "Passport strategy for authenticating with Azure AD using the OAuth 2.0 protocol.",
+  "keywords": [
+    "passport",
+    "waad",
+    "oauth",
+    "azure active directory",
+    "azure ad",
+    "auth",
+    "authn",
+    "authentication",
+    "identity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/auth0/passport-azure-ad-oauth2.git"
+  },
+  "bugs": {
+    "url": "http://github.com/auth0/passport-azure-ad-oauth2/issues"
+  },
+  "author": {
+    "name": "Auth0",
+    "email": "support@auth0.com",
+    "url": "http://www.auth0.com/"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "http://www.opensource.org/licenses/MIT"
+    }
+  ],
+  "main": "./lib/passport-azure-ad-oauth2",
+  "dependencies": {
+    "passport-oauth": "1.0.x"
+  },
+  "devDependencies": {
+    "mocha": "1.x.x",
+    "chai": "1.x.x"
+  },
+  "scripts": {
+    "test": "node_modules/.bin/mocha --reporter spec test/*.test.js"
+  },
+  "homepage": "https://github.com/auth0/passport-azure-ad-oauth2"
+}
