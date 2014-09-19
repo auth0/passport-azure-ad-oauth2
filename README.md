@@ -23,7 +23,7 @@ Applications must supply a `verify` callback which accepts an `accessToken`, `re
 * `resource`: [optional] the App ID URI of the web API (secured resource).
 * `tenant`: [optional] tenant domain (e.g.: contoso.onmicrosoft.com).
 
-```
+```javascript
 passport.use(new AzureAdOAuth2Strategy({
   clientID: '{YOUR_CLIENT_ID}',
   clientSecret: '{YOUR_CLIENT_SECRET}',
@@ -46,7 +46,7 @@ Use `passport.authenticate()`, specifying the `'azure_ad_oauth2'` strategy, to a
 
 For example, as route middleware in an [Express](http://expressjs.com/) application:
 
-```
+```javascript
 app.get('/auth/azureadoauth2',
   passport.authenticate('azure_ad_oauth2'));
 
