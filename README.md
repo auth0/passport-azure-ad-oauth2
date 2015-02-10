@@ -22,6 +22,7 @@ Applications must supply a `verify` callback which accepts an `accessToken`, `re
 * `callbackURL`: URL to which Azure AD will redirect the user after obtaining authorization.
 * `resource`: [optional] the App ID URI of the web API (secured resource).
 * `tenant`: [optional] tenant domain (e.g.: contoso.onmicrosoft.com).
+* `useCommonEndpoint`: [optional] use "https://login.windows.net/common" instead of default endpoint (https://login.windows.net/{tenant}). This is typically enabled if you're using this for a Multi-tenant application in Azure AD (Default: `false`).
 
 ```javascript
 passport.use(new AzureAdOAuth2Strategy({
