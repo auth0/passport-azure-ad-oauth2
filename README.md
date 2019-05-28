@@ -33,12 +33,8 @@ passport.use(new AzureAdOAuth2Strategy({
   tenant: 'contoso.onmicrosoft.com'
 },
 function (accessToken, refresh_token, params, profile, done) {
-  // currently we can't find a way to exchange access token by user info (see userProfile implementation), so
-  // you will need a jwt-package like https://github.com/auth0/node-jsonwebtoken to decode id_token and get waad profile
-  var waadProfile = profile || jwt.decode(params.id_token);
-
   // this is just an example: here you would provide a model *User* with the function *findOrCreate*
-  User.findOrCreate({ id: waadProfile.upn }, function (err, user) {
+  User.findOrCreate({ id: profile.upn }, function (err, user) {
     done(err, user);
   });
 }));
