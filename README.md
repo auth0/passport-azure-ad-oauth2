@@ -1,5 +1,8 @@
 # Passport-azure-ad-oauth2
 
+This is a fork of
+[auth0/passport-azure-ad-oauth2](https://github.com/auth0/passport-azure-ad-oauth2). It changed function authorizationParams to return a clone of the passed options object, rather than the original object. This resolves a fault cause by the caller (passport-oauth2) modifying the returned object which, in the original implementation, caused failure of subsequent authentication attempts.
+
 [Passport](http://passportjs.org/) strategy for authenticating with [Azure AD](http://msdn.microsoft.com/en-us/library/azure/dn645545.aspx)
 using the OAuth 2.0 protocol.
 
