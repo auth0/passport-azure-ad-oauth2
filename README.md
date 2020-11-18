@@ -76,10 +76,6 @@ If you have found a bug or if you have a feature request, please report them at 
   - [Jared Hanson](http://github.com/jaredhanson)
   - [Azure AD Team](https://github.com/AzureAD/azure-activedirectory-library-for-nodejs)
 
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
 ## Author
 
 [Auth0](auth0.com)
